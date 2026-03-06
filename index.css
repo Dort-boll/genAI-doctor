@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+    --neon-cyan: #00f3ff;
+    --neon-purple: #a855f7;
+    --glass-bg: rgba(255, 255, 255, 0.02);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --deep-blur: blur(35px);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: #000000;
+    min-height: 100vh;
+    color: #fff;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, .font-poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.neon-text {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.3), 0 0 20px rgba(0, 243, 255, 0.1);
+}
+
+.neon-border {
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.05);
+}
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: var(--deep-blur);
+    -webkit-backdrop-filter: var(--deep-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-glass {
+    background: transparent;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    z-index: 150;
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.header-active {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.input-glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.input-glass:focus {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--neon-cyan);
+}
+
+@keyframes dna-bounce {
+    0%, 100% { transform: translateY(-15px) scale(0.8); opacity: 0.1; }
+    50% { transform: translateY(15px) scale(1.2); opacity: 1; }
+}
+
+.medical-bg-molecule {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 243, 255, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(50px);
+    z-index: -5;
+    animation: float-bg 25s infinite ease-in-out;
+}
+
+@media (min-width: 768px) {
+    .medical-bg-molecule {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@keyframes float-bg {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(50px, 30px) scale(1.1); }
+    66% { transform: translate(-30px, 60px) scale(0.9); }
+}
+
+.heartbeat-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0.1;
+}
+
+.heartbeat-path {
+    stroke: var(--neon-cyan);
+    stroke-width: 2;
+    fill: none;
+    stroke-dasharray: 2500;
+    stroke-dashoffset: 2500;
+    animation: heartbeat-flow 15s linear infinite;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }

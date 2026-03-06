@@ -1,0 +1,7 @@
+{
+  "name": "GenAI Doctor",
+  "description": "A cutting-edge, frontend-only medical analysis application utilizing Gemini 3 for prescription OCR, scan report interpretation, and tablet identification with a stunning glassmorphism UI.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
